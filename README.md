@@ -156,7 +156,7 @@ string mutation = $@"
 mutation {{
 	createStats(
 		stats: {{
-			playerId: 4,
+			playerId: {_playerId},
 			teamId: 3,
 			seasonId: 2,
 			gamesPlayed: 150,
