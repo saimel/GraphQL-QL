@@ -11,7 +11,7 @@
         
             <Grid VerticalOptions="FillAndExpand">
                 <Grid.IsVisible>
-                    <Binding Source="{x:Reference _this}" Path="IsRunning" Converter="{conv:InvertedBooleanConverter}" />
+                    <Binding Source="{x:Reference _this}" Path="IsBusy" Converter="{conv:InvertedBooleanConverter}" />
                 </Grid.IsVisible>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />

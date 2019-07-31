@@ -5,7 +5,7 @@ namespace GraphQLQLDemo
 {
     public partial class App : Application
     {
-        public const string Endpoint = "";
+        public const string Endpoint = "http://192.168.42.20:5000/graphql";
 
         public App()
         {
