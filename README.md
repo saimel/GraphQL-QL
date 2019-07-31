@@ -2,6 +2,8 @@
 
 Cross library for building GraphQL queries from a class schema.
 
+This library is under develop and you may find some issue. Please feel free to collaborate.
+
 ## Setup
 
 Install GraphQL-QL NuGet package into your PCL/.NetStandard project.
