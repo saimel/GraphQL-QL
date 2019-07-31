@@ -2,10 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>GraphQL.QueryLess</PackageId>
+    <PackageId>GraphQL-QL</PackageId>
     <Authors>Saimel Saez saimelsaez@gmail.com</Authors>
     <Owners>Saimel Saez</Owners>
-    <Description>Cross library for building GraphQL queries given the schema of the class mapping the result.</Description>
+    <Description>GraphQL QueryLess is a library for building GraphQL queries from a class schema</Description>
+    <Summary>Cross library for building GraphQL queries from a class schema</Summary>
+    <PackageProjectUrl>https://github.com/saimel/GraphQL-QL</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/saimel/GraphQL-QL/blob/master/LICENSE.md</PackageLicenseUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <RepositoryUrl></RepositoryUrl>
+    <PackageTags>GraphQL; Xamarin Forms</PackageTags>
+    <Company>Saimel Saez saimelsaez@gmail.com</Company>
   </PropertyGroup>
 
   <ItemGroup>
