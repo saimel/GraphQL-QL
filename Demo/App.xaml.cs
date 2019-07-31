@@ -1,16 +1,17 @@
-﻿using System;
+﻿using GraphQLQLDemo.Pages;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-namespace Demo
+namespace GraphQLQLDemo
 {
     public partial class App : Application
     {
+        public const string Endpoint = "";
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new AllPlayersPage());
         }
 
         protected override void OnStart()

@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace Demo.iOS
+namespace GraphQLQLDemo.iOS
 {
     public class Application
     {

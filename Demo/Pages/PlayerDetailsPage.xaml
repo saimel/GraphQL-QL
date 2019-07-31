@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:conv="clr-namespace:GraphQLQLDemo.Utils;assembly=Demo"
+    x:Class="GraphQLQLDemo.Pages.PlayerDetailsPage"
+    Title="{Binding Name}" Padding="10,5" x:Name="_this">
+
+    <ContentPage.Content>
+        
+        <StackLayout>
+        
+            <Grid VerticalOptions="FillAndExpand">
+                <Grid.IsVisible>
+                    <Binding Source="{x:Reference _this}" Path="IsRunning" Converter="{conv:InvertedBooleanConverter}" />
+                </Grid.IsVisible>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <!--BIRTHPLACE & HEIGHT-->
+                <Label HorizontalTextAlignment="Center" HorizontalOptions="Start"
+                       Grid.Row="0" Grid.ColumnSpan="2">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="From: " FontSize="Medium" />
+                            <Span Text="{Binding BirthPlace}" FontSize="Large" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label HorizontalTextAlignment="Center" HorizontalOptions="End"
+                       Grid.Row="0" Grid.ColumnSpan="2">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Height: " FontSize="Medium" />
+                            <Span Text="{Binding Height}" FontSize="Large" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <!--BIRTHDATE & WEIGHT-->
+                <Label HorizontalTextAlignment="Center" HorizontalOptions="Start"
+                       Grid.Row="1" Grid.ColumnSpan="2">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Birthdate: " FontSize="Medium" />
+                            <Span Text="{Binding BirthDate, StringFormat='{0:MMM dd, yyyy}'}" FontSize="Large" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label HorizontalTextAlignment="Center" HorizontalOptions="End"
+                       Grid.Row="1" Grid.ColumnSpan="2">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Weight (lb): " FontSize="Medium" />
+                            <Span Text="{Binding WeightLbs}" FontSize="Large" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <!--SEPARATOR-->
+                <Label Text="Statistics" TextColor="Navy" VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2" />
+                
+                <Button Text="Add" TextColor="Navy" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="End"
+                        Clicked="OnBtnAddStatsTapped" />
+                
+                <BoxView Color="Navy" Grid.Row="3" Grid.ColumnSpan="2" />    
+                    
+                <!--STATS-->
+                <ListView ItemsSource="{Binding PlayerStats}" RowHeight="100" VerticalOptions="FillAndExpand"
+                          Grid.Row="4" Grid.ColumnSpan="2">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                
+                                <Grid Padding="0">
+                                   <Label Text="{Binding Season}" FontSize="Large" VerticalTextAlignment="Center" 
+                                           HorizontalTextAlignment="Start" Grid.Row="0" Grid.ColumnSpan="2" />
+                                     
+                                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="End" 
+                                           Grid.Row="0" Grid.Column="2">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding TeamAbbreviation}" FontSize="Large" />
+                                                <Span Text=" - "  />
+                                                <Span Text="{Binding LeagueAbbreviation}" FontSize="Large" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    
+                                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Start" 
+                                           Grid.Row="1" Grid.Column="0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Games: " FontSize="Medium" />
+                                                <Span Text="{Binding GamesPlayed}" FontSize="Large" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    
+                                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" 
+                                           Grid.Row="1" Grid.Column="1">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="At Bat: " FontSize="Medium" />
+                                                <Span Text="{Binding AtBat}" FontSize="Large" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    
+                                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="End" 
+                                           Grid.Row="1" Grid.Column="2">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Hits: " FontSize="Medium" />
+                                                <Span Text="{Binding Hits}" FontSize="Large" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    
+                                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Start" 
+                                           Grid.Row="2" Grid.Column="0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Home Runs: " FontSize="Medium" />
+                                                <Span Text="{Binding HomeRuns}" FontSize="Large" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    
+                                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" 
+                                           Grid.Row="2" Grid.Column="1">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="RBIs: " FontSize="Medium" />
+                                                <Span Text="{Binding RBIs}" FontSize="Large" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    
+                                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="End" 
+                                           Grid.Row="2" Grid.Column="2">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="AVE: " FontSize="Medium" />
+                                                <Span Text="{Binding Average}" FontSize="Large" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+                                
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+            </Grid>
+            
+            <ActivityIndicator Color="DarkGreen" IsRunning="{Binding Source={x:Reference _this}, Path=IsBusy}"
+                               IsVisible="{Binding Source={x:Reference _this}, Path=IsBusy}"
+                               VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            
+        </StackLayout>
+        
+    </ContentPage.Content>
+
+</ContentPage>
