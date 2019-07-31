@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>GraphQL.QueryLess</PackageId>
+    <Authors>Saimel Saez saimelsaez@gmail.com</Authors>
+    <Owners>Saimel Saez</Owners>
+    <Description>Cross library for building GraphQL queries given the schema of the class mapping the result.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="GraphQL.Client" Version="1.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Abstractions\" />
+  </ItemGroup>
+</Project>
