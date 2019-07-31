@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="GraphQLQLDemo.Pages.AddPlayerStatsPage"
+    xmlns:vm="clr-namespace:GraphQLQLDemo.Models"
+    Title="Add Player" Padding="10,5" x:Name="_this">
+
+    <ContentPage.Content>
+        
+        <Grid RowSpacing="10" ColumnSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45" /><RowDefinition Height="45" /><RowDefinition Height="45" />
+                <RowDefinition Height="45" /><RowDefinition Height="45" /><RowDefinition Height="45" />
+                <RowDefinition Height="45" />
+            </Grid.RowDefinitions>
+            
+            <Picker Grid.Row="0" Grid.ColumnSpan="3">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type vm:PlayerListModel}">
+                        <vm:PlayerListModel Id="0" Name="Select a player" />
+                        <vm:PlayerListModel Id="1" Name="Didi Gregorius" />
+                        <vm:PlayerListModel Id="2" Name="Yuliesky Gurriel" />
+                        <vm:PlayerListModel Id="3" Name="Jose Abreu" />
+                        <vm:PlayerListModel Id="4" Name="Starlin Castro" />
+                        <vm:PlayerListModel Id="5" Name="Yasmani Grandal" />
+                        <vm:PlayerListModel Id="6" Name="Xander Bogaerts" />
+                    </x:Array>
+                </Picker.ItemsSource>
+                <Picker.ItemDisplayBinding>
+                    <Binding Path="Name" />
+                </Picker.ItemDisplayBinding>
+                <Picker.SelectedIndex>
+                    <Binding Path="PlayerId" Mode="TwoWay" />
+                </Picker.SelectedIndex>
+            </Picker>
+            
+            
+            <Picker Grid.Row="1" Grid.ColumnSpan="3">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type vm:PlayerListModel}">
+                        <vm:PlayerListModel Id="0" Name="Select a team" />
+                        <vm:PlayerListModel Id="1" Name="AL - New York Yankees" />
+                        <vm:PlayerListModel Id="2" Name="AL - Boston Red Sox" />
+                        <vm:PlayerListModel Id="3" Name="AL - Houston Astros" />
+                        <vm:PlayerListModel Id="4" Name="AL - Chicago White Sox" />
+                        <vm:PlayerListModel Id="5" Name="AL - Oakland Athletics" />
+                        <vm:PlayerListModel Id="6" Name="NL - Miami Marlis" />
+                        <vm:PlayerListModel Id="7" Name="NL - New York Mets" />
+                        <vm:PlayerListModel Id="8" Name="NL - Cincinnati Reds" />
+                        <vm:PlayerListModel Id="9" Name="NL - Milwakee Brewers" />
+                        <vm:PlayerListModel Id="10" Name="NL - Los Angeles Dodgers" />
+                    </x:Array>
+                </Picker.ItemsSource>
+                <Picker.ItemDisplayBinding>
+                    <Binding Path="Name" />
+                </Picker.ItemDisplayBinding>
+                <Picker.SelectedIndex>
+                    <Binding Path="TeamId" Mode="TwoWay" />
+                </Picker.SelectedIndex>
+            </Picker>
+            
+            <Picker Grid.Row="2" Grid.ColumnSpan="3">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type vm:PlayerListModel}">
+                        <vm:PlayerListModel Id="0" Name="Select a season" />
+                        <vm:PlayerListModel Id="1" Name="2016 Regular Season" />
+                        <vm:PlayerListModel Id="2" Name="2017 Regular Season" />
+                        <vm:PlayerListModel Id="2" Name="2018 Regular Season" />
+                    </x:Array>
+                </Picker.ItemsSource>
+                <Picker.ItemDisplayBinding>
+                    <Binding Path="Name" />
+                </Picker.ItemDisplayBinding>
+                <Picker.SelectedIndex>
+                    <Binding Path="SeasonId" Mode="TwoWay" />
+                </Picker.SelectedIndex>
+            </Picker>
+            
+            <Entry Text="{Binding GamesPlayed, Mode=OneWayToSource}" FontSize="Large" Placeholder="Games" 
+                   HorizontalTextAlignment="End" Grid.Row="3" Grid.Column="0" Keyboard="Numeric" />
+            
+            <Entry Text="{Binding AtBat, Mode=OneWayToSource}" FontSize="Large" Placeholder="At bat" 
+                   HorizontalTextAlignment="End" Grid.Row="3" Grid.Column="1" Keyboard="Numeric" />
+            
+            <Entry Text="{Binding Hits, Mode=OneWayToSource}" FontSize="Large" Placeholder="Hits" 
+                   HorizontalTextAlignment="End" Grid.Row="3" Grid.Column="2" Keyboard="Numeric" />
+            
+            <Entry Text="{Binding HomeRuns, Mode=OneWayToSource}" FontSize="Large" Placeholder="Home runs" 
+                   HorizontalTextAlignment="End" Grid.Row="4" Grid.Column="0" Keyboard="Numeric" />
+            
+            <Entry Text="{Binding RBIs, Mode=OneWayToSource}" FontSize="Large" Placeholder="RBIs" 
+                   HorizontalTextAlignment="End" Grid.Row="4" Grid.Column="1" Keyboard="Numeric" />
+            
+            
+            <ActivityIndicator Color="Navy" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" 
+                               IsRunning="{Binding Source={x:Reference _this}, Path=IsBusy}" 
+                               IsVisible="{Binding Source={x:Reference  _this}, Path=IsBusy}" 
+                               Grid.Row="5" Grid.ColumnSpan="3" Scale="1.5"/>
+            
+            <Button Text="SAVE" FontAttributes="Bold" TextColor="Navy" BorderColor="Navy" BorderWidth="1" 
+                    Clicked="OnBtnSaveTapped" Grid.Row="6" Grid.ColumnSpan="3" />
+            
+        </Grid>
+        
+    </ContentPage.Content>
+
+</ContentPage>

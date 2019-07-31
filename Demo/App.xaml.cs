@@ -1,16 +1,17 @@
-﻿using System;
+﻿using GraphQLQLDemo.Pages;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-namespace Demo
+namespace GraphQLQLDemo
 {
     public partial class App : Application
     {
+        public const string Endpoint = "http://192.168.42.20:5000/graphql";
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new AllPlayersPage());
         }
 
         protected override void OnStart()
